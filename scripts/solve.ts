@@ -10,11 +10,13 @@ async function importFile() {
     try {
         console.log(`Solving ${leftPaddedDay}-${year} Part ${part.toUpperCase()} ╰(*°▽°*)╯ 🎄`);
         const { solve } = await import(src);
+        console.time("\nTime to solve");
         console.log(
             `Result for ${leftPaddedDay}-${year} ${isTest ? "test" : ""} Part ${part.toUpperCase()} is: ${solve(
                 isTest,
             )}`,
         );
+        console.timeEnd("\nTime to solve");
     } catch (error) {
         console.log(`Error solving part ${part.toUpperCase()} 😿`);
         console.log(error);
