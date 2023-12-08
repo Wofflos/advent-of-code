@@ -62,3 +62,14 @@ export function validateArgs(dayPosition: number = 2, yearPosition: number = 3) 
 export function toNumber(s: string) {
     return parseInt(s.trim());
 }
+
+export function findLCM(numbers: number[]): number {
+    if (numbers.length === 0) {
+        return 0;
+    }
+
+    const gcd = (x: number, y: number): number => (y === 0 ? x : gcd(y, x % y));
+    const calculateLCM = (a: number, b: number): number => Math.abs(a * b) / gcd(Math.abs(a), Math.abs(b));
+
+    return numbers.reduce((lcm, num) => calculateLCM(lcm, num), numbers[0]);
+}
