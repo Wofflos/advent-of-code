@@ -5,7 +5,7 @@ import { exit } from "process";
 function parseFilename(filename: string) {
     const escapedSep = sep === "\\" ? "\\\\" : "\\" + sep;
     const regex = new RegExp(
-        `(?<year>[0-9]{4})${escapedSep}src${escapedSep}(?<day>[0-9]{2})${escapedSep}(?<part>[a|b]).ts`,
+        `src${escapedSep}(?<year>[0-9]{4})${escapedSep}(?<day>[0-9]{2})${escapedSep}(?<part>[a|b]).ts`,
         "g",
     );
 

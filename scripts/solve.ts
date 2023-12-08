@@ -4,7 +4,7 @@ import { exit } from "process";
 async function importFile() {
     const { year, leftPaddedDay, namedArgs } = validateArgs();
     const part = namedArgs["b"] ? "b" : "a";
-    const src = `./src/${year}/${leftPaddedDay}/${part}`;
+    const src = `../src/${year}/${leftPaddedDay}/${part}`;
     const isTest = namedArgs["test"] ?? false;
 
     try {
