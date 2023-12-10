@@ -58,9 +58,7 @@ export function solve(isTest: boolean = false) {
 
         const pipe: string = matrix[xPipe][yPipe];
         const pipeConnections: Array<Array<number>> = pipes[pipe];
-        console.log("pipe", xPipe, yPipe, pipe);
         if (pipe === "S") {
-            console.log("S");
             completedLoop = true;
             break;
         }
@@ -75,7 +73,6 @@ export function solve(isTest: boolean = false) {
         }
     }
 
-    console.log(loop);
     return loop.length / 2;
 }
 
@@ -105,13 +102,11 @@ function getNextPipe(x: number, y: number, matrix: Array<Array<string>>) {
                 const connection = pipeConnections[c];
                 const [xDir, yDir] = connection;
                 if (row + xDir === x && col + yDir === y) {
-                    console.log("pipe", row, col, pipe);
                     return [row, col, ...pipeConnections[c === 0 ? 1 : 0]];
                 }
             }
         }
     }
 
-    console.log("No next pipe");
     return [null, null];
 }
