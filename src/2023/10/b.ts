@@ -1,4 +1,5 @@
 import { readLines } from "@utils/ts-utils";
+import { getPointsInArea } from "@utils/ts-math";
 
 //TODO refactor?????
 const pipes: { [key: string]: Array<Array<number>> } = {
@@ -74,26 +75,6 @@ export function solve(isTest: boolean = false) {
     }
 
     return getPointsInArea(loop);
-}
-
-/**
- *  https://en.wikipedia.org/wiki/Shoelace_formula
- */
-function getArea(points: Array<Array<number>>) {
-    const n = points.length;
-    let area = 0;
-    for (let i = 0; i < n; i++) {
-        area += points[i][0] * (points[(i + 1) % n][1] - points[(i - 1 + n) % n][1]);
-    }
-
-    return 0.5 * Math.abs(area);
-}
-
-/**
- * https://en.wikipedia.org/wiki/Pick%27s_theorem
- */
-function getPointsInArea(points: Array<Array<number>>) {
-    return getArea(points) - points.length / 2 + 1;
 }
 
 //TODO refactor?????

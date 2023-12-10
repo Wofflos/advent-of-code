@@ -1,4 +1,5 @@
-import { readLines, toNumber } from "@utils/ts-utils";
+import { readLines } from "@utils/ts-utils";
+import { toNumber } from "@utils/ts-math";
 
 export function solve(isTest: boolean = false) {
     const [timesLine, distancesLine] = readLines(__filename, isTest);

@@ -1,4 +1,5 @@
-import { readLines, findLCM } from "@utils/ts-utils";
+import { readLines } from "@utils/ts-utils";
+import { findLCM } from "@utils/ts-math";
 
 type Node = {
     id: string;
