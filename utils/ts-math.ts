@@ -19,6 +19,7 @@ export function getPointsInArea(vertices: Array<Array<number>>) {
 }
 
 export function toNumber(s: string) {
+    if (!s) return 0;
     return parseInt(s.trim());
 }
 
