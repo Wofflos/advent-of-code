@@ -46,4 +46,3 @@ Flags:
 -   `--test`: Use `input-test.txt` as the input data file.
 
 #🎄✨
-<sup>Festejale bien 🎅</sup>
