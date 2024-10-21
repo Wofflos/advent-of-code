@@ -1,8 +1,8 @@
-import { readLines } from "@utils/ts-utils";
-import { toNumber } from "@utils/ts-math";
+import { readLines } from "utils";
+import { toNumber } from "utils/math";
 
 export function solve(isTest: boolean = false) {
-    const [timesLine, distancesLine] = readLines(__filename, isTest);
+    const [timesLine, distancesLine] = readLines(import.meta.filename, isTest);
     const raceTime = getNumbers(timesLine);
     const recordDistance = getNumbers(distancesLine);
 

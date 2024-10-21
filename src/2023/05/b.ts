@@ -1,4 +1,4 @@
-import { readFile } from "@utils/ts-utils";
+import { readFile } from "utils";
 
 type Seed = {
     seedStart: number;
@@ -6,7 +6,7 @@ type Seed = {
 };
 
 export function solve(isTest: boolean = false) {
-    const input = readFile(__filename, isTest);
+    const input = readFile(import.meta.filename, isTest);
     const [seedsLine, ...maps] = input.replaceAll("\r", "").split("\n\n");
     const seeds = seedsLine.split(": ")[1].split(" ").map(toNumber);
     const realSeeds: Seed[] = [];

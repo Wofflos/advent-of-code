@@ -1,10 +1,10 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 const regex = new RegExp(/(?=(one|two|three|four|five|six|seven|eight|nine|\d))/g);
 const validNumbers = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
     const values: number[] = [];
 
     lines.forEach((line) => {
@@ -29,7 +29,7 @@ function transformLineIntoNumbers(line: string) {
         });
 }
 
-function extra(line: string) {
+function _extra(line: string) {
     line = line.replaceAll("one", "one1one");
     line = line.replaceAll("two", "two2two");
     line = line.replaceAll("three", "three3three");

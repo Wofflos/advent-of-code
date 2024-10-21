@@ -1,4 +1,4 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 type Node = {
     id: string;
@@ -7,7 +7,7 @@ type Node = {
 };
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
     const sequence = lines[0];
 
     let nodesAux: { [key: string]: Node } = {};

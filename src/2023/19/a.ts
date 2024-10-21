@@ -1,5 +1,5 @@
-import { toNumber } from "@utils/ts-math";
-import { readFile } from "@utils/ts-utils";
+import { toNumber } from "utils/math";
+import { readFile } from "utils";
 
 type Part = {
     x: number;
@@ -21,7 +21,7 @@ type Condition = {
 };
 
 export function solve(isTest: boolean = false) {
-    const [wfs, partsStr] = readFile(__filename, isTest).replaceAll("\r", "").split("\n\n");
+    const [wfs, partsStr] = readFile(import.meta.filename, isTest).replaceAll("\r", "").split("\n\n");
     const parts: Part[] = [];
     const workflows: Map<string, WorkFlow> = new Map();
 
@@ -30,9 +30,9 @@ export function solve(isTest: boolean = false) {
         .replaceAll("}", "")
         .split("\n")
         .forEach((p) => {
-            let rating: Part = { x: 0, m: 0, a: 0, s: 0 };
+            const rating: Part = { x: 0, m: 0, a: 0, s: 0 };
             p.split(",").forEach((ratings) => {
-                let aux = ratings.split("=");
+                const aux = ratings.split("=");
                 rating[aux[0] as "x" | "m" | "a" | "s"] = toNumber(aux[1]);
             });
 
@@ -40,10 +40,10 @@ export function solve(isTest: boolean = false) {
         });
 
     for (const wf of wfs.split("\n")) {
-        let [id, conditions] = wf.replace("}", "").split("{");
-        let workFlow: WorkFlow = { id: id, conditions: [] };
+        const [id, conditions] = wf.replace("}", "").split("{");
+        const workFlow: WorkFlow = { id: id, conditions: [] };
         conditions.split(",").forEach((c) => {
-            let condition: Condition = { operator: null, prop: null, value: 0, result: "" };
+            const condition: Condition = { operator: null, prop: null, value: 0, result: "" };
             if (!c.includes(":")) {
                 condition.result = c;
             } else {

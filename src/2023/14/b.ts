@@ -1,11 +1,11 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 //top, left, bottom, right
 //north, west, south, east
 
 export function solve(isTest: boolean = false) {
-    const panel = readLines(__filename, isTest).map((line) => line.split(""));
-    const directions = ["north", "west", "south", "east"] as const;
+    const panel = readLines(import.meta.filename, isTest).map((line) => line.split(""));
+    const _directions = ["north", "west", "south", "east"] as const;
     let MAX = 1_000_000_000;
 
     const history: string[] = [];

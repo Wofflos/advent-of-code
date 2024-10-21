@@ -1,5 +1,5 @@
-import { toNumber } from "@utils/ts-math";
-import { readLines } from "@utils/ts-utils";
+import { toNumber } from "utils/math";
+import { readLines } from "utils";
 
 type SpringGroup = {
     springs: string[];
@@ -9,7 +9,7 @@ type SpringGroup = {
 const definedConfigs: { [key: string]: number } = {};
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
 
     const configs: SpringGroup[] = lines.map((line) => {
         const [springs, damagedGroups] = line.split(" ");
@@ -38,13 +38,14 @@ export function solve(isTest: boolean = false) {
 
     let combinations = 0;
     for (const spGroup of configs) {
-        let c = combinations;
+        let _c = combinations;
         combinations += getCombinations(spGroup.springs, spGroup.damagedGroups);
     }
 
     return combinations;
 }
 
+// deno-lint-ignore no-explicit-any
 function expandArray(arr: any[], size: number) {
     return Array(size)
         .fill("")
@@ -67,7 +68,7 @@ function getCombinations(springs: string[], damagedGroups: number[]) {
 
     const key = springs.join(",") + damagedGroups.join(",");
 
-    if (definedConfigs.hasOwnProperty(key)) {
+    if (Object.hasOwn(definedConfigs, key)) {
         return definedConfigs[key];
     }
 

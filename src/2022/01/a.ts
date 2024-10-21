@@ -1,8 +1,8 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 export function solve(isTest: boolean = false) {
     console.log("Solving 01-2022 Part a ╰(*°▽°*)╯ 🎄");
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
 
     let max = 0;
     let acc = 0;

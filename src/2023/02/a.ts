@@ -1,7 +1,7 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
 
     const game = {
         red: 12,
@@ -15,7 +15,7 @@ export function solve(isTest: boolean = false) {
         let l = line.split(":");
         const gameValues: { [key: string]: number } = {};
 
-        const colors = l[1]
+        const _colors = l[1]
             .split(";")
             .flatMap((ss) => ss.split(",").map((c) => c.trim()))
             .forEach((color) => {

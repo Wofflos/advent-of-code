@@ -1,4 +1,4 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 const points: { [key: string]: number } = {
     A: 1,
@@ -20,7 +20,7 @@ const points: { [key: string]: number } = {
 const shapes = ["A", "C", "B"];
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
     let score = 0;
     for (const line of lines) {
         const [player1, result] = line.trim().split(" ");

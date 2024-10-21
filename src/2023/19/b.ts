@@ -1,5 +1,5 @@
-import { toNumber } from "@utils/ts-math";
-import { readFile } from "@utils/ts-utils";
+import { toNumber } from "utils/math";
+import { readFile } from "utils";
 
 type Part = {
     x: Range;
@@ -29,13 +29,13 @@ type Condition = {
 const workflows: Map<string, WorkFlow> = new Map();
 
 export function solve(isTest: boolean = false) {
-    const [wfs, _] = readFile(__filename, isTest).replaceAll("\r", "").split("\n\n");
+    const [wfs, _] = readFile(import.meta.filename, isTest).replaceAll("\r", "").split("\n\n");
 
     for (const wf of wfs.split("\n")) {
-        let [id, conditions] = wf.replace("}", "").split("{");
-        let workFlow: WorkFlow = { id: id, conditions: [], result: "" };
+        const [id, conditions] = wf.replace("}", "").split("{");
+        const workFlow: WorkFlow = { id: id, conditions: [], result: "" };
         conditions.split(",").forEach((c) => {
-            let condition: Condition = { operator: null, prop: null, value: 0, result: "" };
+            const condition: Condition = { operator: null, prop: null, value: 0, result: "" };
             if (!c.includes(":")) {
                 condition.result = c;
             } else {
@@ -71,14 +71,14 @@ function countPossibilities(part: Part, workFlowName: string = "in") {
     if (workFlowName === "A") {
         let value = 1;
         for (const key of Object.keys(part)) {
-            let r = part[key as keyof Part];
+            const r = part[key as keyof Part];
             value *= r.max - r.min + 1;
         }
 
         return value;
     }
 
-    let workflow: WorkFlow | null = workflows.get(workFlowName) ?? null;
+    const workflow: WorkFlow | null = workflows.get(workFlowName) ?? null;
 
     if (!workflow) {
         return 0;
@@ -87,7 +87,7 @@ function countPossibilities(part: Part, workFlowName: string = "in") {
     let total = 0;
 
     for (const condition of workflow.conditions) {
-        let prop: Range = part[condition.prop as keyof Part];
+        const prop: Range = part[condition.prop as keyof Part];
         let cTrue: Range = { min: 0, max: 0 };
         let cFalse: Range = { min: 0, max: 0 };
 
@@ -100,7 +100,7 @@ function countPossibilities(part: Part, workFlowName: string = "in") {
         }
 
         if (cTrue.min <= cTrue.max) {
-            let copy = copyPart(part);
+            const copy = copyPart(part);
             copy[condition.prop as keyof Part] = cTrue;
             total += countPossibilities(copy, condition.result);
         }

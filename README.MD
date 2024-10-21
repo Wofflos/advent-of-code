@@ -5,11 +5,11 @@
 Set up files for a specific day:
 
 ```bash
-pnpm run setup [DD] [YYYY]
+deno task setup [--day=DD] [--year=YYYY]
 ```
 
--   `DD`: Day of the month (1, 2, 3...).
--   `YYYY`: Year (2021, 2022, 2023...).
+-   `--day=DD`: Day of the month (1, 2, 3...).
+-   `--year=YYYY`: Year (2021, 2022, 2023...).
 
 Both parameters are optional. If not provided, the current date will be used.
 This command creates source files (`a.ts` and `b.ts`) and data files (`input.txt` and `input-test.txt`).
@@ -19,11 +19,11 @@ This command creates source files (`a.ts` and `b.ts`) and data files (`input.txt
 Copy content from `a.ts` to `b.ts`:
 
 ```bash
-pnpm copy [DD] [YYYY]
+deno task copy [--day=DD] [--year=YYYY]
 ```
 
--   `DD`: Day of the month (1, 2, 3...).
--   `YYYY`: Year (2021, 2022, 2023...).
+-   `--day`: Day of the month (1, 2, 3...).
+-   `--year`: Year (2021, 2022, 2023...).
 
 Both parameters are optional. If not provided, the current date will be used.
 
@@ -32,17 +32,17 @@ Both parameters are optional. If not provided, the current date will be used.
 To solve a specific day's puzzle:
 
 ```bash
-pnpm solve [DD] [YYYY] [--b] [--test]
+deno task solve [--day=DD] [--year=YYYY] [--part=a|b] [--test]
 ```
 
--   `DD`: Day of the month (1, 2, 3...).
--   `YYYY`: Year (2021, 2022, 2023...).
+-   `--day`: Day of the month (1, 2, 3...).
+-   `--year`: Year (2021, 2022, 2023...).
+-   `--part`: a|b (source file)
 
-Both parameters are optional. If not provided, the current date will be used.
+Parameters are optional. If not provided, the current date will be used and `a.ts`.
 
 Flags:
 
--   `--b`: Use `b.ts` as the source file.
 -   `--test`: Use `input-test.txt` as the input data file.
 
 #🎄✨

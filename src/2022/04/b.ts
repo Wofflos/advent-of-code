@@ -1,7 +1,7 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
 
     let count = 0;
     for (const line of lines) {

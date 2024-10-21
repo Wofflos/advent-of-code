@@ -1,5 +1,5 @@
-import { readLines } from "@utils/ts-utils";
-import { toNumber } from "@utils/ts-math";
+import { readLines } from "utils";
+import { toNumber } from "utils/math";
 
 type Lens = {
     label: string;
@@ -11,7 +11,7 @@ type Box = {
 };
 
 export function solve(isTest: boolean = false) {
-    const sequences = readLines(__filename, isTest)[0].split(",");
+    const sequences = readLines(import.meta.filename, isTest)[0].split(",");
 
     const boxes: Box[] = [];
 

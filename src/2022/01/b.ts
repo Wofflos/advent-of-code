@@ -1,7 +1,7 @@
-import { readFile } from "@utils/ts-utils";
+import { readFile } from "utils";
 
 export function solve(isTest: boolean = false) {
-    const input = readFile(__filename, isTest);
+    const input = readFile(import.meta.filename, isTest);
 
     const threeMax: number[] = [];
 
@@ -26,7 +26,7 @@ export function solve(isTest: boolean = false) {
     return threeMax.reduce((a, b) => a + b, 0);
 }
 
-function extra(lines: string[]) {
+function _extra(lines: string[]) {
     const threeMax: number[] = [];
 
     let acc = 0;

@@ -1,0 +1,28 @@
+{
+    "tasks": {
+        "setup": "deno run --allow-write --allow-read scripts/setup.ts",
+        "solve": "deno run --allow-read scripts/solve.ts",
+        "copy": "deno run --allow-read --allow-write scripts/copy.ts",
+        "test": "deno run --allow-read scripts/solve.ts --test"
+    },
+    "fmt": {
+        "useTabs": false,
+        "lineWidth": 80,
+        "indentWidth": 4,
+        "exclude": ["data/", "scripts/"]
+    },
+    "imports": {
+        "@std/cli": "jsr:@std/cli@^1.0.6",
+        "ts-heapq": "npm:ts-heapq@^1.0.6",
+        "utils": "./utils/utils.ts",
+        "utils/math": "./utils/math.ts"
+    },
+    "lint": {
+      "rules": {
+        "exclude": ["prefer-const"]
+      }
+    },
+    "compilerOptions": {
+        "strict": true
+    }
+}

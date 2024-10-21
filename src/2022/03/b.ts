@@ -1,9 +1,9 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 //A-Z 38 (65-90)
 //a-z 96 (97-122)
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
 
     let priorities = 0;
 

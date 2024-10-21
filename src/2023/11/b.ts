@@ -1,4 +1,4 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 type Galaxy = {
     id: number;
@@ -12,7 +12,7 @@ const EXPANSION = 1_000_000;
 const REAL_EXPANSION = EXPANSION - 1;
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
     let galaxies: Galaxy[] = [];
     let galaxiesCount = 0;
     const space = lines.map((line) => {

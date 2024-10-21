@@ -1,5 +1,5 @@
-import { toNumber } from "@utils/ts-math";
-import { readLines } from "@utils/ts-utils";
+import { toNumber } from "utils/math";
+import { readLines } from "utils";
 
 type SpringGroup = {
     springs: string[];
@@ -7,7 +7,7 @@ type SpringGroup = {
 };
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
 
     const configs: SpringGroup[] = lines.map((line) => {
         const [springs, damagedGroups] = line.split(" ");

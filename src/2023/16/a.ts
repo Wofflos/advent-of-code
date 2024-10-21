@@ -1,4 +1,4 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 type Point = {
     x: number;
@@ -11,7 +11,7 @@ type Movement = {
 };
 
 export function solve(isTest: boolean = false) {
-    const layout = readLines(__filename, isTest).map((l) => l.trim().split(""));
+    const layout = readLines(import.meta.filename, isTest).map((l) => l.trim().split(""));
 
     const energizedTiles = new Set<string>();
     const movements = new Set<string>();
@@ -87,6 +87,7 @@ function moveBeam(layout: string[][], position: Point, direction: Point, movemen
                 //If we're moving right, go up
                 return [{ position: newPosition, direction: { x: -1, y: 0 } }];
             }
+            break;
         case "\\":
             if (direction.x === -1) {
                 //If we're moving up, go left

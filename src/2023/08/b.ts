@@ -1,5 +1,5 @@
-import { readLines } from "@utils/ts-utils";
-import { findLCM } from "@utils/ts-math";
+import { readLines } from "utils";
+import { findLCM } from "utils/math";
 
 type Node = {
     id: string;
@@ -8,7 +8,7 @@ type Node = {
 };
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
     const sequence = lines[0];
 
     let nodesAux: { [key: string]: Node } = {};

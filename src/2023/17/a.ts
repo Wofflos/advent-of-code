@@ -1,6 +1,7 @@
-import { toNumber } from "@utils/ts-math";
-import { readLines } from "@utils/ts-utils";
+import { toNumber } from "utils/math";
+import { readLines } from "utils";
 import { Heapq } from "ts-heapq";
+
 
 type Point = {
     row: number;
@@ -15,7 +16,7 @@ type Position = {
 };
 
 export function solve(isTest: boolean = false) {
-    const blocks: string[][] = readLines(__filename, isTest).map((l) => l.trim().split(""));
+    const blocks: string[][] = readLines(import.meta.filename, isTest).map((l) => l.trim().split(""));
     const seen: Set<string> = new Set();
 
     let states: Heapq<Position> = new Heapq<Position>(

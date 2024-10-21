@@ -1,5 +1,5 @@
-import { readLines } from "@utils/ts-utils";
-import { toNumber } from "@utils/ts-math";
+import { readLines } from "utils";
+import { toNumber } from "utils/math";
 
 enum Type {
     HIGH_CARD, //all different
@@ -14,7 +14,7 @@ enum Type {
 const cards = ["J", "2", "3", "4", "5", "6", "7", "8", "9", "T", "Q", "K", "A"];
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
     const hands = lines.map((line) => {
         const [hand, bid] = line.split(" ");
         const play = {

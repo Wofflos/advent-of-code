@@ -1,26 +1,21 @@
-import { validateArgs } from "@utils/ts-utils";
-import { exit } from "process";
+import { validateArgs } from "utils";
 
 async function importFile() {
-    const { year, leftPaddedDay, namedArgs } = validateArgs();
-    const part = namedArgs["b"] ? "b" : "a";
-    const src = `../src/${year}/${leftPaddedDay}/${part}`;
-    const isTest = namedArgs["test"] ?? false;
+    const { year, leftPaddedDay, part, test } = validateArgs();
+    const src = `../src/${year}/${leftPaddedDay}/${part}.ts`;
 
     try {
         console.log(`Solving ${leftPaddedDay}-${year} Part ${part.toUpperCase()} ╰(*°▽°*)╯ 🎄`);
         const { solve } = await import(src);
         console.time("\nTime to solve");
         console.log(
-            `Result for ${leftPaddedDay}-${year} ${isTest ? "test" : ""} Part ${part.toUpperCase()} is: ${solve(
-                isTest,
-            )}`,
+            `Result for ${leftPaddedDay}-${year} ${test ? "test" : ""} Part ${part.toUpperCase()} is: ${solve(test)}`,
         );
         console.timeEnd("\nTime to solve");
     } catch (error) {
         console.log(`Error solving part ${part.toUpperCase()} 😿`);
         console.log(error);
-        exit(0);
+        Deno.exit(0);
     }
 }
 

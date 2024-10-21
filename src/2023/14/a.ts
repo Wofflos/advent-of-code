@@ -1,7 +1,7 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 export function solve(isTest: boolean = false) {
-    const panel = readLines(__filename, isTest).map((line) => line.split(""));
+    const panel = readLines(import.meta.filename, isTest).map((line) => line.split(""));
 
     const maxLoad = panel.length;
     let load = 0;

@@ -1,7 +1,7 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 export function solve(isTest: boolean = false) {
-    const sequences = readLines(__filename, isTest)[0].split(",");
+    const sequences = readLines(import.meta.filename, isTest)[0].split(",");
 
     let sumHashes = 0;
 

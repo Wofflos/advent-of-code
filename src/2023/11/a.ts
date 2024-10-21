@@ -1,4 +1,4 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 type Galaxy = {
     id: number;
@@ -7,7 +7,7 @@ type Galaxy = {
 };
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
     let galaxies: { [key: string]: Galaxy } = {};
     let galaxiesCount = 0;
     const space = lines.map((line) => {

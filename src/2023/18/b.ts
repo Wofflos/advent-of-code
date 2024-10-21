@@ -1,5 +1,5 @@
-import { getArea, getPointsInArea, toNumber } from "@utils/ts-math";
-import { readLines } from "@utils/ts-utils";
+import { getArea } from "utils/math";
+import { readLines } from "utils";
 
 type Direction = "R" | "D" | "L" | "U";
 type DigPlan = {
@@ -12,7 +12,7 @@ export function solve(isTest: boolean = false) {
     const loop: Array<Array<number>> = [[0, 0]];
     let points = 0;
 
-    readLines(__filename, isTest).forEach((l) => {
+    readLines(import.meta.filename, isTest).forEach((l) => {
         let [_, _1, color] = l.trim().split(" ");
 
         let hex: string[] = color.replace("(", "").replace(")", "").replace("#", "").split("");

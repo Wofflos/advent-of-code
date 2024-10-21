@@ -1,4 +1,4 @@
-import { readLines } from "@utils/ts-utils";
+import { readLines } from "utils";
 
 //TODO refactor?????
 const pipes: { [key: string]: Array<Array<number>> } = {
@@ -29,7 +29,7 @@ const pipes: { [key: string]: Array<Array<number>> } = {
 };
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
     const loop: Array<Array<number>> = [];
     const matrix: Array<Array<string>> = lines.map((line) => line.split(""));
 

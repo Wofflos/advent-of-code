@@ -1,8 +1,8 @@
-import { readLines } from "@utils/ts-utils";
-import { toNumber } from "@utils/ts-math";
+import { readLines } from "utils";
+import { toNumber } from "utils/math";
 
 export function solve(isTest: boolean = false) {
-    const lines = readLines(__filename, isTest);
+    const lines = readLines(import.meta.filename, isTest);
 
     const nextValues: number[] = [];
     const historyValues: Map<number, Array<number[]>> = new Map();

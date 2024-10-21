@@ -1,7 +1,7 @@
-import { readFile } from "@utils/ts-utils";
+import { readFile } from "utils";
 
 export function solve(isTest: boolean = false) {
-    const input = readFile(__filename, isTest);
+    const input = readFile(import.meta.filename, isTest);
     const patterns = input
         .replaceAll("\r", "")
         .split("\n\n")
