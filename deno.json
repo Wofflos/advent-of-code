@@ -7,7 +7,7 @@
     },
     "fmt": {
         "useTabs": false,
-        "lineWidth": 80,
+        "lineWidth": 100,
         "indentWidth": 4,
         "exclude": ["data/", "scripts/"]
     },
@@ -18,9 +18,9 @@
         "utils/math": "./utils/math.ts"
     },
     "lint": {
-      "rules": {
-        "exclude": ["prefer-const"]
-      }
+        "rules": {
+            "exclude": ["prefer-const"]
+        }
     },
     "compilerOptions": {
         "strict": true

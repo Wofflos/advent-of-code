@@ -29,7 +29,12 @@ export function findLCM(numbers: number[]): number {
     }
 
     const gcd = (x: number, y: number): number => (y === 0 ? x : gcd(y, x % y));
-    const calculateLCM = (a: number, b: number): number => Math.abs(a * b) / gcd(Math.abs(a), Math.abs(b));
+    const calculateLCM = (a: number, b: number): number =>
+        Math.abs(a * b) / gcd(Math.abs(a), Math.abs(b));
 
     return numbers.reduce((lcm, num) => calculateLCM(lcm, num), numbers[0]);
+}
+
+export function mod(n: number, m: number) {
+    return ((n % m) + m) % m;
 }
