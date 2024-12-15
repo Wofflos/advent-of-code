@@ -19,19 +19,21 @@ function parseFilename(filename: string) {
     return { day, part, year };
 }
 
-export function readFile(filename: string|undefined, test: boolean = false) {
-    if(!filename) {
-        console.log("Error filename")
+export function readFile(filename: string | undefined, test: boolean = false) {
+    if (!filename) {
+        console.log("Error filename");
         Deno.exit(0);
     }
 
     const { day, year } = parseFilename(filename);
-    return Deno.readTextFileSync(`.${sep}data${sep}${year}${sep}${day}${sep}input${test ? "-test" : ""}.txt`);
+    return Deno.readTextFileSync(
+        `.${sep}data${sep}${year}${sep}${day}${sep}input${test ? "-test" : ""}.txt`,
+    );
 }
 
-export function readLines(filename: string|undefined, test: boolean = false) {
-    if(!filename) {
-        console.log("Error filename")
+export function readLines(filename: string | undefined, test: boolean = false) {
+    if (!filename) {
+        console.log("Error filename");
         Deno.exit(0);
     }
 
@@ -63,4 +65,8 @@ export function validateArgs() {
         force: argvs.force ?? false,
         part: argvs.part ?? "a",
     };
+}
+
+export function isNotValid(x: number, y: number, grid: (string | number)[][]): boolean {
+    return x < 0 || x >= grid.length || y < 0 || y >= grid[0].length;
 }
