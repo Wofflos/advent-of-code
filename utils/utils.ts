@@ -28,7 +28,7 @@ export function readFile(filename: string | undefined, test: boolean = false) {
     const { day, year } = parseFilename(filename);
     return Deno.readTextFileSync(
         `.${sep}data${sep}${year}${sep}${day}${sep}input${test ? "-test" : ""}.txt`,
-    );
+    ).replaceAll("\r", "");
 }
 
 export function readLines(filename: string | undefined, test: boolean = false) {
@@ -37,7 +37,7 @@ export function readLines(filename: string | undefined, test: boolean = false) {
         Deno.exit(0);
     }
 
-    return readFile(filename, test).replaceAll("\r", "").split("\n");
+    return readFile(filename, test).split("\n");
 }
 
 export function validateArgs() {
