@@ -67,6 +67,23 @@ export function validateArgs() {
     };
 }
 
-export function isNotValid(x: number, y: number, grid: (string | number)[][]): boolean {
-    return x < 0 || x >= grid.length || y < 0 || y >= grid[0].length;
+export function isNotValid(row: number, col: number, grid: (string | number)[][]): boolean {
+    return row < 0 || row >= grid.length || col < 0 || col >= grid[0].length;
+}
+
+// deno-lint-ignore no-explicit-any
+export function memoize<T extends (...args: any[]) => any>(fn: T): T {
+  const cache = new Map<string, ReturnType<T>>();
+  
+  return ((...args: Parameters<T>): ReturnType<T> => {
+    const key = JSON.stringify(args);
+    
+    if (cache.has(key)) {
+      return cache.get(key)!;
+    }
+    
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  }) as T;
 }
